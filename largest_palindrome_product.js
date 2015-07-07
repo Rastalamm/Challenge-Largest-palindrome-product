@@ -11,14 +11,28 @@ module.exports = function(digits){
   var palindromeNumber = 0;
   var palindromeResult;
   // do your work here
-  var num;
+var num;
 var highArr = [];
+var nineArray = [];
+var starting = 0;
+
+function howManyNines(digits){
+  for(var i = 0; i <= (digits-1); i++){
+      nineArray.push(9)
+  }
+  starting = Number(nineArray.join(''))
+  checker(starting)
+}
+
   if(digits === 2){
-    num = 9999;
-    checker(9999)
+    num = 99;
+    checker(99)
+  }else if(digits ===3){
+    num = 999;
+    checker(999);
   }else{
-    num = 99999;
-    checker(99999);
+    num = 9999;
+    checker(9999);
   }
 
 function checker(num){
@@ -35,6 +49,7 @@ function checker(num){
         }
 
     }
+    highArr.splice(highArr.length/2)
 
     topTen(highArr)
 }
@@ -73,7 +88,7 @@ function checker(num){
 
      for(var k = 0; k < highArr.length; k++){
 
-      for(var i = num; i > 0; i--){
+      for(var i = num; i > (num - Math.ceil(99*.1)); i--){
         var x = highArr[k] % i;
         var q = highArr[k]/i
         if(x === 0 && q < num ){
