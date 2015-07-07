@@ -29,7 +29,7 @@ describe("Find The Largest Palindrome Product", function () {
 
     it.skip("of two 5 digit numbers", function () {
     var product = findPalindromeProduct(5);
-    //find out what 5 would result in
+    //ffdsaind out what 5 would result in
     expect(product.palindromeNumber).to.equal();
 
   });
