@@ -16,95 +16,71 @@ var highArr = [];
 var nineArray = [];
 var starting = 0;
 
-function howManyNines(digits){
-  for(var i = 0; i <= (digits-1); i++){
-      nineArray.push(9)
-  }
-  starting = Number(nineArray.join(''))
-  checker(starting)
-}
-
   if(digits === 2){
     num = 99;
-    checker(99)
-  }else if(digits ===3){
+    palindromeGenerator(99)
+  }else if(digits === 3){
     num = 999;
-    checker(999);
-  }else{
+    palindromeGenerator(999);
+  }else if(digits === 4){
     num = 9999;
-    checker(9999);
+    palindromeGenerator(9999);
+  }else{
+    num = 99999;
+    palindromeGenerator(99999);
   }
 
-function checker(num){
+var highArr =[];
 
-    num = num * num;
+function topTen(highArr){
 
-    while(num > 0){
+    pal = highArr.pop();
 
-        if (palindromeCheck(num)){
-            highArr.push(num);
-            num--;
-        }else{
-            num--;
+    for(var i = num; i > (num - Math.ceil(num*.1)); i-- ){
+
+        if(pal % i === 0 && i < num && (pal/i) <= num){
+            palindromeNumber = Number(pal);
+            factor_0 = i;
+            factor_1 = pal/i
+
+            return true;
+
         }
-
     }
-    highArr.splice(highArr.length/2)
 
-    topTen(highArr)
 }
 
 
+function palindromeGenerator(num){
+var master =[];
+var arr = [];
 
+  for(var k = num; k >(num - Math.ceil(num*.1)); k--){
+      arr.push(k);
+      var stringy = k.toString();
+      for(var i = stringy.length-1; i >=0; i--){
+          newNum = stringy.charAt(i)
+          //console.log(newNum);
+          arr.push(newNum)
 
+          }
 
-  function palindromeCheck(num){
-    var numToArray = [];
-    var numToString = num.toString();
-    var numLength = numToString.length;
+          finArr = arr.join('');
 
-    for (var i = 0; i < numLength; i++){
-        numToArray.push(numToString.charAt(i))
-    }
+          arr = [];
 
-    var top = numLength-1;
+          master.push(finArr);
+          //call the pal checker
 
-    for(var k = 0; k < numLength; k++){
-
-      if(numToArray[k] === numToArray[top]){
-        palindromeResult = true;
-        top--;
-      }else{
-        palindromeResult = false;
-        return false;
-      }
-    }
-    palindromeResult = true;
-    return true;
-  }
-
-
-  function topTen(highArr){
-
-     for(var k = 0; k < highArr.length; k++){
-
-      for(var i = num; i > (num - Math.ceil(99*.1)); i--){
-        var x = highArr[k] % i;
-        var q = highArr[k]/i
-        if(x === 0 && q < num ){
-            palindromeNumber = highArr[k];
-            factor_0 = q;
-            factor_1 = i;
-       console.log(palindromeNumber);
+          if(topTen(master)){
+            console.log('inside')
             return true;
-        }
-      }
-
-     }
+          }else{
+            master = []
+          }
   }
 
-
-
+}
 
 
 

@@ -27,10 +27,10 @@ describe("Find The Largest Palindrome Product", function () {
 
   });
 
-    it.skip("of two 5 digit numbers", function () {
+    it("of two 5 digit numbers", function () {
     var product = findPalindromeProduct(5);
-    //ffdsaind out what 5 would result in
-    expect(product.palindromeNumber).to.equal();
+    //find out what 5 would result in
+    expect(product.palindromeNumber).to.equal(9966006699);
 
   });
 });
