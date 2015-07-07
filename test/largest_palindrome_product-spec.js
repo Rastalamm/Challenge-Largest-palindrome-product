@@ -18,9 +18,6 @@ describe("Find The Largest Palindrome Product", function () {
 
     expect(product.palindromeNumber).to.equal(906609);
 
-    // add your tests here
-    //
-    //
   });
 
     it("of two 4 digit numbers", function () {
@@ -28,8 +25,12 @@ describe("Find The Largest Palindrome Product", function () {
 
     expect(product.palindromeNumber).to.equal(99000099);
 
-    // add your tests here
-    //
-    //
+  });
+
+    it.skip("of two 4 digit numbers", function () {
+    var product = findPalindromeProduct(5);
+    //find out what 5 would result in
+    expect(product.palindromeNumber).to.equal();
+
   });
 });
